@@ -1,29 +1,32 @@
 
-let myNodelist = document.getElementsByTagName("LI");
-let i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
+const study = document.getElementById(`study`);
+const fun = document.getElementById(`fun`);
+const extra = document.getElementById(`extra`);
 
+const STUDY = 'STUDY';
+const FUN = 'FUN';
+const EXTRA = 'EXTRA';
 
-let close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
+let myList = [
+  { name: `Practice JAVA`, cat: STUDY },
+  { name: `Work out`, cat: EXTRA },
+  { name: `Practice Python`, cat: STUDY },
+  { name: `Dance`, cat: FUN },
+  { name: `Do Grocery`, cat: EXTRA },
+  { name: `Finish todo list`, cat: STUDY },
+  { name: `Practice RUBY`, cat: STUDY },
+];
 
+function.printList(theArrayToPrint = myList);
 
-var list = document.querySelector('ul');
+// document.getElementById(myList)
+// myList.innerHTML = study + fun + extra;
+
+let list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
+    ev.target.classList.toggle('done');
   }
 }, false);
+
 
